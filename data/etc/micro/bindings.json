@@ -12,5 +12,8 @@
     "ShiftLeft": "SelectLeft",
     "ShiftRight": "SelectRight",
     "ShiftUp": "SelectUp",
-    "Ctrl-W": "DeleteWordLeft"
+    "Ctrl-W": "DeleteWordLeft",
+    "Ctrl-Alt-D": "DuplicateLine",
+    "Ctrl-D": "SpawnMultiCursor",
+    "Esc": "RemoveAllMultiCursors"
 }
