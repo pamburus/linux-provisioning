@@ -20,3 +20,4 @@ tar -C ~ -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
 ! test -f "${hl:?}" || cp "${hl:?}" "${target:?}"/bin/
 wget -N -q -P "${target:?}"/dist/ ${bat:?} ${lsd:?} ${procs:?}
 ! test -f "${vimrc:?}" || cp "${vimrc:?}" "${target:?}"/etc/
+! test -f ~/.tmux.conf || cp ~/.tmux.conf "${target:?}"/etc/

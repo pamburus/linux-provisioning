@@ -5,6 +5,7 @@ set -e
 source=~/opt/provisioning/data
 
 # actions
+sudo yum install -y -q vim tmux
 tar -C ~ -x -f ${source:?}/share/tmux.tar.gz
 sudo yum install -y -q ${source:?}/dist/*.rpm
 sudo tar -C /usr/bin/ -x --strip-components 1 -f ${source:?}/dist/bat-*.tar.gz '*/bat'
