@@ -1,0 +1,16 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "AltDown": "MoveLinesDown",
+    "AltLeft": "StartOfTextToggle",
+    "AltUp": "MoveLinesUp",
+    "CtrlLeft": "WordLeft",
+    "CtrlRight": "WordRight",
+    "CtrlShiftLeft": "SelectWordLeft",
+    "CtrlShiftRight": "SelectWordRight",
+    "CtrlUnderscore": "lua:comment.comment",
+    "ShiftDown": "SelectDown",
+    "ShiftLeft": "SelectLeft",
+    "ShiftRight": "SelectRight",
+    "ShiftUp": "SelectUp",
+    "Ctrl-W": "DeleteWordLeft"
+}

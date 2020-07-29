@@ -10,14 +10,29 @@ lsd=https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd-0.17.0-x86_64-u
 procs=https://github.com/dalance/procs/releases/download/v0.10.3/procs-0.10.3-1.x86_64.rpm
 hl=~/bin/linux/hl
 vimrc=~/.vim/vimrc
+tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa.pub
+microcfg=~/.config/micro
 tmux=".tmux.conf .tmux .tmux-themepack"
 
+function git-clone() {
+	local src="$1"
+	local dst="$2"
+	if [ -d "${dst}" ]; then
+		git -C "${dst}" pull -q
+	else
+		git clone "${src}" "${dst}"
+	fi
+}
+
 # actions
-mkdir -p "${target:?}"/{etc,share,keys,bin,dist}
-tar -C ~ -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
+mkdir -p "${target:?}"/{etc/micro,share,keys,bin,dist,src}
+! test -f "${vimrc:?}" || cp "${vimrc:?}" "${target:?}"/etc/vim/
+! test -f "${tmuxconf:?}" || cp "${tmuxconf:?}" "${target:?}"/etc/tmux/
+! test -d "${microcfg:?}" || cp "${microcfg:?}"/*.json "${target:?}"/etc/micro/
 ! test -f "${key:?}" || cp "${key:?}" "${target:?}"/keys/current.key
 ! test -f "${hl:?}" || cp "${hl:?}" "${target:?}"/bin/
+git-clone https://github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
+git-clone https://github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux-themepack
+tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
 wget -N -q -P "${target:?}"/dist/ ${bat:?} ${lsd:?} ${procs:?}
-! test -f "${vimrc:?}" || cp "${vimrc:?}" "${target:?}"/etc/
-! test -f ~/.tmux.conf || cp ~/.tmux.conf "${target:?}"/etc/
