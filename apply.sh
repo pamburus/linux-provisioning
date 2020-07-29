@@ -6,7 +6,7 @@ source=~/opt/provisioning/data
 
 # actions
 mkdir -p ~/.vim ~/.config
-cp ${source:?}/etc/vimrc ~/.vim/vimrc
+cp ${source:?}/etc/vim/vimrc ~/.vim/vimrc
 cp -r ${source:?}/etc/micro ~/.config/
 tar -C ~ -x -f ${source:?}/share/tmux.tar.gz
 sudo yum install -y -q vim tmux micro htop
