@@ -5,8 +5,11 @@ set -e
 source=~/opt/provisioning/data
 
 # actions
-sudo yum install -y -q vim tmux
+mkdir -p ~/.vim ~/.config
+cp ${source:?}/etc/vimrc ~/.vim/vimrc
+cp -r ${source:?}/etc/micro ~/.config/
 tar -C ~ -x -f ${source:?}/share/tmux.tar.gz
+sudo yum install -y -q vim tmux micro
 sudo yum install -y -q ${source:?}/dist/*.rpm
 sudo tar -C /usr/bin/ -x --strip-components 1 -f ${source:?}/dist/bat-*.tar.gz '*/bat'
 sudo tar -C /usr/bin/ -x --strip-components 1 -f ${source:?}/dist/lsd-*.tar.gz '*/lsd'
@@ -15,4 +18,3 @@ echo 'source ~/opt/provisioning/data/scripts/profile.sh' | ${source:?}/scripts/a
 for key in $(find ${source:?}/keys -type f); do
 	cat ${key:?} | ${source:?}/scripts/append.sh ~/.ssh/authorized_keys
 done
-mkdir -p ~/.vim && cp ${source:?}/etc/vimrc ~/.vim/vimrc
