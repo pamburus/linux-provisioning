@@ -9,7 +9,7 @@ mkdir -p ~/.vim ~/.config
 cp ${source:?}/etc/vimrc ~/.vim/vimrc
 cp -r ${source:?}/etc/micro ~/.config/
 tar -C ~ -x -f ${source:?}/share/tmux.tar.gz
-sudo yum install -y -q vim tmux micro
+sudo yum install -y -q vim tmux micro htop
 sudo yum install -y -q ${source:?}/dist/*.rpm
 sudo tar -C /usr/bin/ -x --strip-components 1 -f ${source:?}/dist/bat-*.tar.gz '*/bat'
 sudo tar -C /usr/bin/ -x --strip-components 1 -f ${source:?}/dist/lsd-*.tar.gz '*/lsd'
