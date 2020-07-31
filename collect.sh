@@ -13,6 +13,7 @@ vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa.pub
 microcfg=~/.config/micro
+alacrittycfg=~/.config/alacritty
 tmux=".tmux.conf .tmux .tmux-themepack"
 
 function git-clone() {
@@ -32,6 +33,7 @@ mkdir -p "${target:?}"/{etc/micro,share,keys,bin,dist,src}
 ! test -d "${microcfg:?}" || cp "${microcfg:?}"/*.json "${target:?}"/etc/micro/
 ! test -f "${key:?}" || cp "${key:?}" "${target:?}"/keys/current.key
 ! test -f "${hl:?}" || cp "${hl:?}" "${target:?}"/bin/
+! test -d "${alacrittycfg:?}" || cp "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
 git-clone https://github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
 git-clone https://github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux-themepack
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
