@@ -1,5 +1,4 @@
 # environment variables
-export COLORTERM=truecolor
 export MICRO_TRUECOLOR=1
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
