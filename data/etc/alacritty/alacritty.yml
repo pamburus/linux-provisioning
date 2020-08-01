@@ -39,6 +39,10 @@ mouse:
     modifiers: Command
 
 key_bindings:
+  # delete one word to the left
+  - key: Back
+    mods: Control
+    chars: "\x15"
   # tmux - detach
   - key: D
     mods: Command
