@@ -319,11 +319,7 @@ key_bindings:
   # new alacritty window
   - key: "N"
     mods: Command
-    command:
-      program: open
-      args:
-        - "-n"
-        - /Applications/Alacritty.app
+    action: SpawnNewInstance
 
 window:
   # Window dimensions (changes require restart)
