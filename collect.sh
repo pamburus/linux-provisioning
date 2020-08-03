@@ -30,6 +30,7 @@ done
 bat=https://github.com/sharkdp/bat/releases/download/v0.15.4/bat-v0.15.4-x86_64-unknown-linux-musl.tar.gz
 lsd=https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd-0.17.0-x86_64-unknown-linux-musl.tar.gz
 procs=https://github.com/dalance/procs/releases/download/v0.10.3/procs-0.10.3-1.x86_64.rpm
+delta=https://github.com/dandavison/delta/releases/download/0.3.0/delta-0.3.0-x86_64-unknown-linux-musl.tar.gz
 hl=https://github.com/pamburus/hl/releases/download/v0.1.3/hl-linux
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
@@ -61,6 +62,6 @@ fi
 git-clone https://github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
 git-clone https://github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux-themepack
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
-wget -N -q -P "${target:?}"/dist/ ${bat:?} ${lsd:?} ${procs:?}
+wget -N -q -P "${target:?}"/dist/ ${bat:?} ${lsd:?} ${procs:?} ${delta:?}
 wget -N -q -O "${target:?}"/bin/hl ${hl:?}
 chmod +x "${target:?}"/bin/hl
