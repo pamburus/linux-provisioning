@@ -14,3 +14,5 @@ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\W\[\033[m\]\$
 
 # aliases
 alias ls='lsd --icon never --group-dirs first'
+alias bat='bat --paging always'
+alias delta='delta --paging always'
