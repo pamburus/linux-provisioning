@@ -37,7 +37,7 @@ tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa.pub
 microcfg=~/.config/micro
 alacrittycfg=~/.config/alacritty
-tmux=".tmux.conf .tmux .tmux-themepack"
+tmux=".tmux.conf .tmux"
 
 function git-clone() {
 	local src="$1"
@@ -59,7 +59,10 @@ if [ "${include_configs:?}" == true ]; then
 	! test -f "${hl:?}" || cp "${hl:?}" "${target:?}"/bin/
 	! test -d "${alacrittycfg:?}" || cp "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
 fi
-git-clone https://github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
-git-clone https://github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux-themepack
+git-clone https://git::@github.com/nhdaly/tmux-better-mouse-mode ${target:?}/etc/tmux/.tmux/plugins/tmux-better-mouse-mode
+git-clone https://git::@github.com/tmux-plugins/tmux-resurrect ${target:?}/etc/tmux/.tmux/plugins/tmux-resurrect
+git-clone https://git::@github.com/tmux-plugins/tmux-sensible ${target:?}/etc/tmux/.tmux/plugins/tmux-sensible
+git-clone https://git::@github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux/plugins/tmux-themepack
+git-clone https://git::@github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
 wget -N -q -P "${target:?}"/dist/ ${bat:?} ${lsd:?} ${procs:?} ${delta:?} ${hl:?}

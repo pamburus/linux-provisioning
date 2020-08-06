@@ -21,4 +21,3 @@ echo "source ${source:?}/scripts/profile.sh" | "${source:?}/scripts/append.sh" ~
 for key in $(find ${source:?}/keys -type f); do
 	cat ${key:?} | ${source:?}/scripts/append.sh ~/.ssh/authorized_keys
 done
-~/.tmux/plugins/tpm/scripts/install_plugins.sh >/dev/null
