@@ -3,5 +3,5 @@ set -e
 
 for addr in "$@"; do
 	tar -C ~ -cz opt/provisioning | ssh ${addr:?} 'tar -C ~ -xz'
-	ssh ${addr:?} '~/opt/provisioning/apply.sh'
+	ssh ${addr:?} '~/opt/provisioning/apply.sh && sudo ~/opt/provisioning/apply.sh'
 done
