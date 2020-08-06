@@ -11,7 +11,7 @@ cp ${source:?}/etc/vim/vimrc ~/.vim/vimrc
 cp -r ${source:?}/etc/micro ~/.config/
 tar -C ~ -x -f ${source:?}/share/tmux.tar.gz
 sudo yum install -y -q epel-release
-sudo yum install -y -q vim tmux micro htop
+sudo yum install -y -q vim tmux micro htop git
 sudo yum install -y -q ${source:?}/dist/*.rpm
 sudo tar -C ${target:?} -x --strip-components 1 -f ${source:?}/dist/bat-*.tar.gz '*/bat'
 sudo tar -C ${target:?} -x --strip-components 1 -f ${source:?}/dist/lsd-*.tar.gz '*/lsd'
