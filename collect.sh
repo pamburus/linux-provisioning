@@ -65,4 +65,8 @@ git-clone https://git::@github.com/tmux-plugins/tmux-sensible ${target:?}/etc/tm
 git-clone https://git::@github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux/plugins/tmux-themepack
 git-clone https://git::@github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
-wget -N -q -P "${target:?}"/dist/ ${bat:?} ${lsd:?} ${procs:?} ${delta:?} ${hl:?}
+wget -N -q -O "${target:?}"/dist/bat.tar.gz ${bat:?} 
+wget -N -q -O "${target:?}"/dist/lsd.tar.gz ${lsd:?}
+wget -N -q -O "${target:?}"/dist/procs.tar.gz ${procs:?}
+wget -N -q -O "${target:?}"/dist/delta.tar.gz ${delta:?}
+wget -N -q -O "${target:?}"/dist/hl.tar.gz ${hl:?}
