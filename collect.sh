@@ -67,6 +67,6 @@ git-clone https://git::@github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/p
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
 wget -N -q -O "${target:?}"/dist/bat.tar.gz ${bat:?} 
 wget -N -q -O "${target:?}"/dist/lsd.tar.gz ${lsd:?}
-wget -N -q -O "${target:?}"/dist/procs.tar.gz ${procs:?}
+wget -N -q -O "${target:?}"/dist/procs.rpm ${procs:?}
 wget -N -q -O "${target:?}"/dist/delta.tar.gz ${delta:?}
 wget -N -q -O "${target:?}"/dist/hl.tar.gz ${hl:?}
