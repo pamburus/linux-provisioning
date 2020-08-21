@@ -11,7 +11,7 @@ cp "${source:?}"/etc/vim/vimrc ~/.vim/vimrc
 cp -r "${source:?}"/etc/micro ~/.config/
 tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
 sudo yum install -y -q vim htop git || true
-tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/tmux.tar.gz
+tar -C ~ -x --strip-components 1 -f "${source:?}"/dist/tmux.tar.gz
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/bat.tar.gz '*/bat'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/lsd.tar.gz '*/lsd'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/delta.tar.gz '*/delta'
