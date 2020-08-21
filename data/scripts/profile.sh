@@ -11,6 +11,8 @@ export LESSCHARSET=utf-8
 export MANPAGER="sh -c 'col -bx | bat -l man -p --paging always'"
 export MANROFFOPT="-c"
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\W\[\033[m\]\$ "
+export BAT_PAGER="less -R -+X"
+export LESS="-R -+X"
 
 # aliases
 alias ls='lsd --icon never --group-dirs first'
