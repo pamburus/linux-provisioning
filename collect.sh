@@ -31,7 +31,7 @@ bat=https://github.com/sharkdp/bat/releases/download/v0.15.4/bat-v0.15.4-x86_64-
 lsd=https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd-0.17.0-x86_64-unknown-linux-musl.tar.gz
 procs=https://github.com/dalance/procs/releases/download/v0.10.3/procs-0.10.3-1.x86_64.rpm
 delta=https://github.com/dandavison/delta/releases/download/0.4.0/delta-0.4.0-x86_64-unknown-linux-musl.tar.gz
-hl=https://github.com/pamburus/hl/releases/download/v0.6.4/hl-linux.tar.gz
+hl=https://github.com/pamburus/hl/releases/download/v0.6.8/hl-linux.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa.pub
@@ -56,7 +56,6 @@ if [ "${include_configs:?}" == true ]; then
 	! test -f "${tmuxconf:?}" || cp "${tmuxconf:?}" "${target:?}"/etc/tmux/
 	! test -d "${microcfg:?}" || cp "${microcfg:?}"/*.json "${target:?}"/etc/micro/
 	! test -f "${key:?}" || cp "${key:?}" "${target:?}"/keys/current.key
-	! test -f "${hl:?}" || cp "${hl:?}" "${target:?}"/bin/
 	! test -d "${alacrittycfg:?}" || cp "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
 fi
 git-clone https://git::@github.com/nhdaly/tmux-better-mouse-mode ${target:?}/etc/tmux/.tmux/plugins/tmux-better-mouse-mode
