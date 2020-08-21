@@ -33,12 +33,13 @@ procs=https://github.com/dalance/procs/releases/download/v0.10.3/procs-0.10.3-1.
 delta=https://github.com/dandavison/delta/releases/download/0.4.0/delta-0.4.0-x86_64-unknown-linux-musl.tar.gz
 hl=https://github.com/pamburus/hl/releases/download/v0.6.8/hl-linux.tar.gz
 micro=https://github.com/zyedidia/micro/releases/download/v2.0.6/micro-2.0.6-linux64-static.tar.gz
+tmux=https://github.com/owent-contrib/tmux-build-musl/releases/download/3.1b/tmux-3.1b.musl-bin.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa.pub
 microcfg=~/.config/micro
 alacrittycfg=~/.config/alacritty
-tmux=".tmux.conf .tmux"
+tmuxcfg=".tmux.conf .tmux"
 
 function git-clone() {
 	local src="$1"
@@ -64,10 +65,11 @@ git-clone https://git::@github.com/tmux-plugins/tmux-resurrect ${target:?}/etc/t
 git-clone https://git::@github.com/tmux-plugins/tmux-sensible ${target:?}/etc/tmux/.tmux/plugins/tmux-sensible
 git-clone https://git::@github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux/.tmux/plugins/tmux-themepack
 git-clone https://git::@github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
-tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmux.tar.gz ${tmux:?}
+tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmuxcfg.tar.gz ${tmuxcfg:?}
+wget -N -q -O "${target:?}"/dist/tmux.tar.gz ${tmux:?}
 wget -N -q -O "${target:?}"/dist/bat.tar.gz ${bat:?} 
 wget -N -q -O "${target:?}"/dist/lsd.tar.gz ${lsd:?}
 wget -N -q -O "${target:?}"/dist/procs.rpm ${procs:?}
 wget -N -q -O "${target:?}"/dist/delta.tar.gz ${delta:?}
-wget -N -q -O "${target:?}"/dist/hl.tar.gz ${hl:?}
 wget -N -q -O "${target:?}"/dist/micro.tar.gz ${micro:?}
+wget -N -q -O "${target:?}"/dist/hl.tar.gz ${hl:?}

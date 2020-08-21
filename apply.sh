@@ -13,10 +13,10 @@ function install {
 mkdir -p ~/.vim ~/.config
 cp "${source:?}"/etc/vim/vimrc ~/.vim/vimrc
 cp -r "${source:?}"/etc/micro ~/.config/
-tar -C ~ -x -f ${source:?}/share/tmux.tar.gz
-install epel-release
-install vim tmux htop git
+tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
+install vim htop git
 sudo yum install -q -y "${source:?}"/dist/*.rpm || true
+sudo tar -C /usr/ -x --strip-components 1 -f "${source:?}"/dist/tmux.tar.gz
 sudo tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/bat.tar.gz '*/bat'
 sudo tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/lsd.tar.gz '*/lsd'
 sudo tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/delta.tar.gz '*/delta'
