@@ -7,7 +7,7 @@ target=$(dirname "$0")/data
 include_configs=false
 
 function usage() {
-	echo "$0 [--include-configs]"
+	echo "$0 [-c|--include-configs]"
 }
 
 while [ "$1" != "" ]; do
