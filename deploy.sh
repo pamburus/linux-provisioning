@@ -29,5 +29,5 @@ done
 
 for addr in "$@"; do
 	tar -C ~ -cz opt/provisioning | ssh ${addr:?} 'tar -C ~ -xz'
-	ssh ${addr:?} ${sudo} '~/opt/provisioning/apply.sh'
+	ssh ${addr:?} ${sudo} bash '~/opt/provisioning/apply.sh'
 done
