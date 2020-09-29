@@ -19,6 +19,8 @@ tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/micro.tar.gz 
 unzip -f -d "${target:?}" "${source:?}"/dist/procs.zip
 tar -C "${target:?}" -x -f "${source:?}"/dist/hl.tar.gz 'hl'
 echo "source ${source:?}/scripts/profile.sh" | "${source:?}/scripts/append.sh" ~/.bash_profile
+mkdir -p ~/.ssh && chmod 0700 ~/.ssh
 for key in $(ls "${source:?}"/keys/*.key); do
 	cat ${key:?} | "${source:?}"/scripts/append.sh ~/.ssh/authorized_keys
 done
+chmod 0600 ~/.ssh/authorized_keys
