@@ -30,9 +30,9 @@ tar -C "${target:?}" -x -f "${source:?}"/dist/hl.tar.gz --wildcards 'hl'
 
 # configure bash profile
 if [ -f ~/.bash_profile ]; then
-	profile='~/.bash_profile'
+	profile=~/.bash_profile
 elif [ -f ~/.profile ]; then
-	profile='~/.profile'
+	profile=~/.profile
 fi
 echo "source ${source:?}/scripts/profile.sh" | "${source:?}/scripts/append.sh" "${profile:?}"
 
