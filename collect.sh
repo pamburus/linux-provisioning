@@ -27,12 +27,12 @@ while [ "$1" != "" ]; do
 done
 
 # source files
-bat=https://github.com/sharkdp/bat/releases/download/v0.15.4/bat-v0.15.4-x86_64-unknown-linux-musl.tar.gz
-lsd=https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd-0.17.0-x86_64-unknown-linux-musl.tar.gz
-procs=https://github.com/dalance/procs/releases/download/v0.10.4/procs-v0.10.4-x86_64-lnx.zip
-delta=https://github.com/dandavison/delta/releases/download/0.4.0/delta-0.4.0-x86_64-unknown-linux-musl.tar.gz
+bat=https://github.com/sharkdp/bat/releases/download/v0.17.1/bat-v0.17.1-x86_64-unknown-linux-musl.tar.gz
+lsd=https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-0.19.0-x86_64-unknown-linux-musl.tar.gz
+procs=https://github.com/dalance/procs/releases/download/v0.10.10/procs-v0.10.10-x86_64-lnx.zip
+delta=https://github.com/dandavison/delta/releases/download/0.4.5/delta-0.4.5-x86_64-unknown-linux-musl.tar.gz
 hl=https://github.com/pamburus/hl/releases/download/v0.8.1/hl-linux.tar.gz
-micro=https://github.com/zyedidia/micro/releases/download/v2.0.6/micro-2.0.6-linux64-static.tar.gz
+micro=https://github.com/zyedidia/micro/releases/download/v2.0.8/micro-2.0.8-linux64-static.tar.gz
 tmux=https://github.com/owent-contrib/tmux-build-musl/releases/download/3.1b/tmux-3.1b.musl-bin.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
