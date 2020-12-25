@@ -27,7 +27,9 @@ while [ "$1" != "" ]; do
 	shift
 done
 
+
 for addr in "$@"; do
+	ssh ${addr:?} ${sudo} mkdir -p opt/provisioning
 	tar -C ~ -cz opt/provisioning | ssh ${addr:?} 'tar -C ~ -xz'
 	ssh ${addr:?} ${sudo} bash '~/opt/provisioning/apply.sh'
 done
