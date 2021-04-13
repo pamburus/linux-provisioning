@@ -29,7 +29,7 @@ done
 
 
 for addr in "$@"; do
-	ssh ${addr:?} ${sudo} mkdir -p '~/opt/provisioning'
+	ssh ${addr:?} mkdir -p '~/opt/provisioning'
 	tar -cz . | ssh ${addr:?} tar -C '~/opt/provisioning' -xz
 	ssh ${addr:?} ${sudo} bash '~/opt/provisioning/apply.sh'
 done
