@@ -5,6 +5,7 @@ set -e
 target=$(dirname "$0")/data
 
 include_configs=false
+key=~/.ssh/id_rsa
 
 function usage() {
 	echo "$0 [-c|--include-configs]"
@@ -14,6 +15,10 @@ while [ "$1" != "" ]; do
 	case $1 in
 		-c | --include-configs )
 			include_configs=true
+			;;
+		-k | --key )
+			key="$1"
+			shift
 			;;
 		-h | --help )
 			usage
@@ -36,7 +41,7 @@ micro=https://github.com/zyedidia/micro/releases/download/v2.0.8/micro-2.0.8-lin
 tmux=https://github.com/owent-contrib/tmux-build-musl/releases/download/3.1b/tmux-3.1b.musl-bin.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
-key=~/.ssh/id_rsa.pub
+key=~/.ssh/id_rsa
 microcfg=~/.config/micro
 alacrittycfg=~/.config/alacritty
 tmuxcfg=".tmux.conf .tmux"
@@ -57,9 +62,9 @@ if [ "${include_configs:?}" == true ]; then
 	! test -f "${vimrc:?}" || cp "${vimrc:?}" "${target:?}"/etc/vim/
 	! test -f "${tmuxconf:?}" || cp "${tmuxconf:?}" "${target:?}"/etc/tmux/
 	! test -d "${microcfg:?}" || cp "${microcfg:?}"/*.json "${target:?}"/etc/micro/
-	! test -f "${key:?}" || cp "${key:?}" "${target:?}"/keys/current.key
 	! test -d "${alacrittycfg:?}" || cp "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
 fi
+! test -f "${key:?}" || openssl rsa -in "${key:?}" -pubout > "${target:?}"/keys/current.key
 git-clone https://git::@github.com/nhdaly/tmux-better-mouse-mode ${target:?}/etc/tmux/.tmux/plugins/tmux-better-mouse-mode
 git-clone https://git::@github.com/tmux-plugins/tmux-resurrect ${target:?}/etc/tmux/.tmux/plugins/tmux-resurrect
 git-clone https://git::@github.com/tmux-plugins/tmux-sensible ${target:?}/etc/tmux/.tmux/plugins/tmux-sensible

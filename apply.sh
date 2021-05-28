@@ -38,7 +38,7 @@ echo "source ${source:?}/scripts/profile.sh" | "${source:?}/scripts/append.sh" "
 
 # configure ssh
 mkdir -p ~/.ssh && chmod 0700 ~/.ssh
-for key in $(ls "${source:?}"/keys/*.key); do
+for key in $(find "${source:?}"/keys -name '*.key'); do
 	cat ${key:?} | "${source:?}"/scripts/append.sh ~/.ssh/authorized_keys
 done
 chmod 0600 ~/.ssh/authorized_keys
