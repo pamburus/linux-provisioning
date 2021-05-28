@@ -64,7 +64,7 @@ if [ "${include_configs:?}" == true ]; then
 	! test -d "${microcfg:?}" || cp "${microcfg:?}"/*.json "${target:?}"/etc/micro/
 	! test -d "${alacrittycfg:?}" || cp "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
 fi
-! test -f "${key:?}" || openssl rsa -in "${key:?}" -pubout > "${target:?}"/keys/current.key
+! test -f "${key:?}" || ssh-keygen -y -f "${key:?}" > "${target:?}"/keys/current.key
 git-clone https://git::@github.com/nhdaly/tmux-better-mouse-mode ${target:?}/etc/tmux/.tmux/plugins/tmux-better-mouse-mode
 git-clone https://git::@github.com/tmux-plugins/tmux-resurrect ${target:?}/etc/tmux/.tmux/plugins/tmux-resurrect
 git-clone https://git::@github.com/tmux-plugins/tmux-sensible ${target:?}/etc/tmux/.tmux/plugins/tmux-sensible
