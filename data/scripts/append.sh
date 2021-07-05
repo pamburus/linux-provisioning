@@ -2,5 +2,5 @@
 set -e
 while read line
 do
-	grep -qxF "$line" "$1" || (echo "$line" >> "$1")
+	(test -f "$1" && grep -qxF "$line" "$1") || (echo "$line" >> "$1")
 done
