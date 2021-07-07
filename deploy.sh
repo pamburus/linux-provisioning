@@ -16,7 +16,7 @@ while [ "$1" != "" ]; do
 			usage
 			exit
 			;;
-        -* )
+		-* )
 			usage
 			exit 1
 			;;
@@ -32,5 +32,5 @@ for addr in "$@"; do
 	tar -cz . | ssh ${addr:?} \
 		'mkdir -p ~/opt/provisioning' \
 		' && tar -C ~/opt/provisioning -xz' \
-		' && bash ~/opt/provisioning/apply.sh'
+		' && '${sudo}' bash ~/opt/provisioning/apply.sh'
 done
