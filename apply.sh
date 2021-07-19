@@ -16,9 +16,9 @@ tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
 if [ "$(id -u)" == 0 ]; then
 	if [ -f /etc/redhat-release ]; then
 		yum -y install epel-release
-		yum -y install -q vim htop git unzip
+		yum -y install -q vim htop git
 	elif [ -f /etc/lsb-release ]; then
-		apt -y install htop git unzip
+		apt -y install htop git
 	fi
 fi
 
@@ -28,7 +28,7 @@ tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/bat.tar.gz --
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/lsd.tar.gz --wildcards '*/lsd'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/delta.tar.gz --wildcards '*/delta'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/micro.tar.gz --wildcards '*/micro'
-unzip -f -d "${target:?}" "${source:?}"/dist/procs.zip
+tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/procs.tar.gz --wildcards '*/procs'
 tar -C "${target:?}" -x -f "${source:?}"/dist/hl.tar.gz --wildcards 'hl'
 
 # configure bash profile

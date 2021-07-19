@@ -2,6 +2,7 @@
 set -e
 
 # target locations
+source=$(dirname "$0")
 target=$(dirname "$0")/data
 
 include_configs=false
@@ -88,3 +89,4 @@ download "${procs:?}" "${target:?}"/dist/procs.zip
 download "${delta:?}" "${target:?}"/dist/delta.tar.gz
 download "${micro:?}" "${target:?}"/dist/micro.tar.gz
 download "${hl:?}" "${target:?}"/dist/hl.tar.gz
+${SHELL} ${source:?}/zip2tgz.sh "${target:?}"/dist/procs.zip "${target:?}"/dist/procs.tar.gz
