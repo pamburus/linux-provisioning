@@ -25,18 +25,14 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
 
-  url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    launcher: open
-
-    # URL modifiers
-    #
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    modifiers: Command
+hints:
+  enabled:
+   - regex: "(mailto:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
+     command: open
+     post_processing: true
+     mouse:
+       enabled: true
+       mods: Command
 
 key_bindings:
   # delete one word to the left
@@ -355,15 +351,15 @@ font:
 
   # The bold font face
   bold:
-    family: Noto Mono for Powerline
+    family: Menlo
     # Style can be specified to pick a specific face.
-    # style: Bold
+    style: Bold
 
   # The italic font face
   italic:
-    family: Noto Mono for Powerline
+    family: Menlo
     # Style can be specified to pick a specific face.
-    # style: Italic
+    style: Italic
 
   # Point size
   size: 12.0
