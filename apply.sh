@@ -13,11 +13,13 @@ cp -R "${source:?}"/etc/hl ~/.config/
 tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
 
 # install needed and useful packages from official repositories
-if [ -f /etc/redhat-release ]; then
-	sudo yum install -y -q vim htop git unzip
-fi
-if [ -f /etc/lsb-release ]; then
-	sudo apt install -y htop git unzip
+if [ "$(id -u)" == 0 ]; then
+	if [ -f /etc/redhat-release ]; then
+		yum -y install epel-release
+		yum -y install -q vim htop git unzip
+	elif [ -f /etc/lsb-release ]; then
+		apt -y install htop git unzip
+	fi
 fi
 
 # unpack binaries from tarballs

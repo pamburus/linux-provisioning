@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sudo=''
+sudo=true
 
 function usage() {
 	echo "$0 [--su|-s]"
@@ -32,5 +32,6 @@ for addr in "$@"; do
 	tar -cz . | ssh ${addr:?} \
 		'mkdir -p ~/opt/provisioning' \
 		' && tar -C ~/opt/provisioning -xz' \
+		' && bash ~/opt/provisioning/apply.sh' \
 		' && '${sudo}' bash ~/opt/provisioning/apply.sh'
 done
