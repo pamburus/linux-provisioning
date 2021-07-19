@@ -1,6 +1,31 @@
 #!/bin/bash
 set -ex
 
+function usage() {
+	echo "$0 [-x | --install-extra-packages]"
+}
+
+install_extra_packages=false
+while [ "$1" != "" ]; do
+	case $1 in
+		-x | --install-extra-packages )
+			install_extra_packages=true
+			;;
+		-h | --help )
+			usage
+			exit
+			;;
+		-* )
+			usage
+			exit 1
+			;;
+        * )
+			usage
+			exit 1
+	esac
+	shift
+done
+
 # source location
 source=$(realpath $(dirname $0)/data)
 target=~/bin
@@ -13,7 +38,7 @@ cp -R "${source:?}"/etc/hl ~/.config/
 tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
 
 # install needed and useful packages from official repositories
-if [ "$(id -u)" == 0 ]; then
+if [ ${install_extra_packages:?} == true ] && [ "$(id -u)" == 0 ]; then
 	if [ -f /etc/redhat-release ]; then
 		yum -y install epel-release
 		yum -y install -q vim htop git
