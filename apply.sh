@@ -64,6 +64,7 @@ elif [ -f ~/.profile ]; then
 	profile=~/.profile
 fi
 echo "source ${source:?}/scripts/profile.sh" | "${source:?}/scripts/append.sh" "${profile:?}"
+echo "export PATH=${target:?}:\${PATH}" | "${source:?}/scripts/append.sh" "${profile:?}"
 
 # configure ssh
 mkdir -p ~/.ssh && chmod 0700 ~/.ssh
