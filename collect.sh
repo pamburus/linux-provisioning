@@ -8,7 +8,7 @@ include_configs=false
 key=~/.ssh/id_rsa
 
 function usage() {
-	echo "$0 [-c|--include-configs]"
+	echo "$0 [-c|--include-configs] [-k {ssh-key-file}]"
 }
 
 while [ "$1" != "" ]; do
