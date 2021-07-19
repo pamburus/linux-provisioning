@@ -8,7 +8,8 @@ target=~/bin
 # copy configs
 mkdir -p "${target:?}" ~/.vim ~/.config
 cp "${source:?}"/etc/vim/vimrc ~/.vim/vimrc
-cp -r "${source:?}"/etc/micro ~/.config/
+cp -R "${source:?}"/etc/micro ~/.config/
+cp -R "${source:?}"/etc/hl ~/.config/
 tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
 
 # install needed and useful packages from official repositories

@@ -43,6 +43,7 @@ vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa
 microcfg=~/.config/micro
+hlcfg=~/.config/hl
 alacrittycfg=~/.config/alacritty
 tmuxcfg=".tmux.conf .tmux"
 
@@ -65,12 +66,13 @@ function download() {
 }
 
 # actions
-mkdir -p "${target:?}"/{etc/micro,share,keys,bin,dist,src}
+mkdir -p "${target:?}"/{etc/{micro,hl},share,keys,bin,dist,src}
 if [ "${include_configs:?}" == true ]; then
-	! test -f "${vimrc:?}" || cp "${vimrc:?}" "${target:?}"/etc/vim/
-	! test -f "${tmuxconf:?}" || cp "${tmuxconf:?}" "${target:?}"/etc/tmux/
-	! test -d "${microcfg:?}" || cp "${microcfg:?}"/*.json "${target:?}"/etc/micro/
-	! test -d "${alacrittycfg:?}" || cp "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
+	! test -f "${vimrc:?}" || cp -L "${vimrc:?}" "${target:?}"/etc/vim/
+	! test -f "${tmuxconf:?}" || cp -L "${tmuxconf:?}" "${target:?}"/etc/tmux/
+	! test -d "${microcfg:?}" || cp -L "${microcfg:?}"/*.json "${target:?}"/etc/micro/
+	! test -d "${hlcfg:?}" || cp -RL "${hlcfg:?}"/* "${target:?}"/etc/hl/
+	! test -d "${alacrittycfg:?}" || cp -L "${alacrittycfg:?}"/* "${target:?}"/etc/alacritty/
 fi
 ! test -f "${key:?}" || ssh-keygen -y -f "${key:?}" > "${target:?}"/keys/current.key
 git-clone https://git::@github.com/nhdaly/tmux-better-mouse-mode ${target:?}/etc/tmux/.tmux/plugins/tmux-better-mouse-mode
@@ -80,7 +82,7 @@ git-clone https://git::@github.com/jimeh/tmux-themepack.git ${target:?}/etc/tmux
 git-clone https://git::@github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/plugins/tpm
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmuxcfg.tar.gz ${tmuxcfg:?}
 download "${tmux:?}" "${target:?}"/dist/tmux.tar.gz
-download "${bat:?}"  "${target:?}"/dist/bat.tar.gz
+download "${bat:?}" "${target:?}"/dist/bat.tar.gz
 download "${lsd:?}" "${target:?}"/dist/lsd.tar.gz
 download "${procs:?}" "${target:?}"/dist/procs.zip
 download "${delta:?}" "${target:?}"/dist/delta.tar.gz
