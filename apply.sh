@@ -50,6 +50,7 @@ fi
 # unpack binaries from tarballs
 tar -C ~ -x --strip-components 1 -f "${source:?}"/dist/tmux.tar.gz
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/bat.tar.gz --wildcards '*/bat'
+tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/fd.tar.gz --wildcards '*/fd'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/lsd.tar.gz --wildcards '*/lsd'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/delta.tar.gz --wildcards '*/delta'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/micro.tar.gz --wildcards '*/micro'

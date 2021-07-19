@@ -34,6 +34,7 @@ done
 
 # source files
 bat=https://github.com/sharkdp/bat/releases/download/v0.18.1/bat-v0.18.1-x86_64-unknown-linux-musl.tar.gz
+fd=https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-musl.tar.gz
 lsd=https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-0.20.1-x86_64-unknown-linux-musl.tar.gz
 procs=https://github.com/dalance/procs/releases/download/v0.11.9/procs-v0.11.9-x86_64-lnx.zip
 delta=https://github.com/dandavison/delta/releases/download/0.8.1/delta-0.8.1-x86_64-unknown-linux-musl.tar.gz
@@ -84,6 +85,7 @@ git-clone https://git::@github.com/tmux-plugins/tpm ${target:?}/etc/tmux/.tmux/p
 tar -C "${target:?}"/etc/tmux -cz -f "${target:?}"/share/tmuxcfg.tar.gz ${tmuxcfg:?}
 download "${tmux:?}" "${target:?}"/dist/tmux.tar.gz
 download "${bat:?}" "${target:?}"/dist/bat.tar.gz
+download "${fd:?}" "${target:?}"/dist/fd.tar.gz
 download "${lsd:?}" "${target:?}"/dist/lsd.tar.gz
 download "${procs:?}" "${target:?}"/dist/procs.zip
 download "${delta:?}" "${target:?}"/dist/delta.tar.gz
