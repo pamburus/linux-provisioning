@@ -27,7 +27,7 @@ while [ "$1" != "" ]; do
 done
 
 # source location
-source=$(realpath $(dirname $0)/data)
+source=$(readlink -f -- $(dirname $0)/data)
 target=~/bin
 
 # copy configs
