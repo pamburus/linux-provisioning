@@ -15,7 +15,7 @@ export BAT_PAGER="less -R -+X"
 export LESS="-R -+X"
 
 # aliases
-alias ls='lsd --icon never --group-dirs first'
+alias lsd='lsd --icon never --group-dirs first'
 alias bat='bat --paging always'
 alias delta='delta --paging always'
 alias tmux='~/bin/tmux'
