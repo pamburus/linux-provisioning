@@ -33,14 +33,15 @@ while [ "$1" != "" ]; do
 done
 
 # source files
-bat=https://github.com/sharkdp/bat/releases/download/v0.18.3/bat-v0.18.3-x86_64-unknown-linux-musl.tar.gz
-fd=https://github.com/sharkdp/fd/releases/download/v8.3.0/fd-v8.3.0-x86_64-unknown-linux-musl.tar.gz
-lsd=https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-0.20.1-x86_64-unknown-linux-musl.tar.gz
-procs=https://github.com/dalance/procs/releases/download/v0.11.10/procs-v0.11.10-x86_64-lnx.zip
-delta=https://github.com/dandavison/delta/releases/download/0.10.1/delta-0.10.1-x86_64-unknown-linux-musl.tar.gz
-hl=https://github.com/pamburus/hl/releases/download/v0.10.7/hl-linux.tar.gz
-micro=https://github.com/zyedidia/micro/releases/download/v2.0.10/micro-2.0.10-linux64-static.tar.gz
+bat=https://github.com/sharkdp/bat/releases/download/v0.22.1/bat-v0.22.1-x86_64-unknown-linux-musl.tar.gz
+fd=https://github.com/sharkdp/fd/releases/download/v8.5.3/fd-v8.5.3-x86_64-unknown-linux-musl.tar.gz
+lsd=https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd-0.23.1-x86_64-unknown-linux-musl.tar.gz
+procs=https://github.com/dalance/procs/releases/download/v0.13.3/procs-v0.13.3-x86_64-linux.zip
+delta=https://github.com/dandavison/delta/releases/download/0.14.0/delta-0.14.0-x86_64-unknown-linux-musl.tar.gz
+hl=https://github.com/pamburus/hl/releases/download/v0.13.0/hl-linux.tar.gz
+micro=https://github.com/zyedidia/micro/releases/download/v2.0.11/micro-2.0.11-linux64-static.tar.gz
 tmux=https://github.com/owent-contrib/tmux-build-musl/releases/download/3.2a/tmux-3.2a.musl-bin.tar.gz
+gojq=https://github.com/itchyny/gojq/releases/download/v0.12.9/gojq_v0.12.9_linux_amd64.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa
@@ -91,4 +92,5 @@ download "${procs:?}" "${target:?}"/dist/procs.zip
 download "${delta:?}" "${target:?}"/dist/delta.tar.gz
 download "${micro:?}" "${target:?}"/dist/micro.tar.gz
 download "${hl:?}" "${target:?}"/dist/hl.tar.gz
+download "${gojq:?}" "${target:?}"/dist/gojq.tar.gz
 ${SHELL} ${source:?}/zip2tgz.sh "${target:?}"/dist/procs.zip "${target:?}"/dist/procs.tar.gz

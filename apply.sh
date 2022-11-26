@@ -55,6 +55,7 @@ tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/lsd.tar.gz --
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/delta.tar.gz --wildcards '*/delta'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/micro.tar.gz --wildcards '*/micro'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/procs.tar.gz --wildcards '*/procs'
+tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/gojq.tar.gz --wildcards '*/gojq'
 tar -C "${target:?}" -x -f "${source:?}"/dist/hl.tar.gz --wildcards 'hl'
 
 # configure bash profile
