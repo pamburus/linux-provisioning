@@ -27,12 +27,13 @@ mouse:
 
 hints:
   enabled:
-   - regex: "(mailto:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
-     command: open
-     post_processing: true
-     mouse:
-       enabled: true
-       mods: Command
+    - regex: "(mailto:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\" {-}\\\\^⟨⟩`]+"
+      command: open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Command
+      hyperlinks: true
 
 key_bindings:
   # delete one word to the left
@@ -315,7 +316,7 @@ key_bindings:
   # new alacritty window
   - key: "N"
     mods: Command
-    action: SpawnNewInstance
+    action: CreateNewWindow
 
 window:
   # Window dimensions (changes require restart)
@@ -331,33 +332,43 @@ window:
   # Blank space added around the window in pixels. This padding is not scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 4
-    y: 0
+    x: 6
+    y: 4
 
   # Window decorations
   #
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background and no title bar buttons
   decorations: full
+
+  # Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 1.0
 
 # Font configuration (changes require restart)
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Noto Mono for Powerline
+    family: Meslo LG S DZ for Powerline
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: Menlo
+    family: Meslo LG S DZ for Powerline
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Menlo
+    family: Meslo LG S DZ for Powerline
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -802,34 +813,124 @@ themes:
       white: "#FFFFFF"
 
   # Colors (One Dark)
-  - &one-dark # Default colors
+  - &one-dark
+    # Default colors
     primary:
-      background: "#282c34"
-      foreground: "#abb2bf"
+      background: '0x1e2127'
+      foreground: '0xabb2bf'
+
+      # Bright and dim foreground colors
+      #
+      # The dimmed foreground color is calculated automatically if it is not present.
+      # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+      # is `false`, the normal foreground color will be used.
+      #dim_foreground: '0x9a9a9a'
+      bright_foreground: '0xe6efff'
+
+    # Cursor colors
+    #
+    # Colors which should be used to draw the terminal cursor. If these are unset,
+    # the cursor color will be the inverse of the cell color.
+    #cursor:
+    #  text: '0x000000'
+    #  cursor: '0xffffff'
 
     # Normal colors
     normal:
-      # NOTE: Use '#131613' for the `black` color if you'd like to see
-      # black text on the background.
-      black: "#282c34"
-      red: "#e06c75"
-      green: "#98c379"
-      yellow: "#d19a66"
-      blue: "#61afef"
-      magenta: "#c678dd"
-      cyan: "#56b6c2"
-      white: "#abb2bf"
+      black:   '0x1e2127'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0x828791'
 
     # Bright colors
     bright:
-      black: "#5c6370"
-      red: "#e06c75"
-      green: "#98c379"
-      yellow: "#d19a66"
-      blue: "#61afef"
-      magenta: "#c678dd"
-      cyan: "#56b6c2"
-      white: "#ffffff"
+      black:   '0x5c6370'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0xe6efff'
+
+    # Dim colors
+    #
+    # If the dim colors are not set, they will be calculated automatically based
+    # on the `normal` colors.
+    dim:
+      black:   '0x1e2127'
+      red:     '0xe06c75'
+      green:   '0x98c379'
+      yellow:  '0xd19a66'
+      blue:    '0x61afef'
+      magenta: '0xc678dd'
+      cyan:    '0x56b6c2'
+      white:   '0x828791'
+
+  # Colors (Light)
+  - &light
+    primary:
+      background: "#fffeff"
+      foreground: "#000000"
+      dim_foreground: "#676767"
+
+    # Normal colors
+    normal:
+      black: "#000000"
+      red: "#c91b00"
+      green: "#00c200"
+      yellow: "#c7c400"
+      blue: "#0225c7"
+      magenta: "#c930c7"
+      cyan: "#00c5c7"
+      white: "#c7c7c7"
+
+    # Bright colors
+    bright:
+      black: "#676767"
+      red: "#ff6d67"
+      green: "#5ff967"
+      yellow: "#fefb67"
+      blue: "#6871ff"
+      magenta: "#ff76ff"
+      cyan: "#5ffdff"
+      white: "#fffeff"
+
+  # Colors (One Dark Neo)
+  - &one-dark-neo
+    primary:
+      background: "#282c34"
+      foreground: "#a0b0bd"
+      bright_foreground: "#cccccc"
+      dim_foreground: "#676f82"
+
+    # Normal colors
+    normal:
+      black: "#282c34"
+      red: "#d17277"
+      green: "#a1c281"
+      yellow: "#c99c6e"
+      blue: "#74ade9"
+      magenta: "#bb7cd7"
+      cyan: "#6fb4c0"
+      white: "#acb2be"
+
+    # Bright colors
+    bright:
+      black: "#676f82"
+      red: "#e6676d"
+      green: "#a9d47f"
+      yellow: "#de9b64"
+      blue: "#66acff"
+      magenta: "#c671eb"
+      cyan: "#69c6d1"
+      white: "#cccccc"
 
 # Colors
-colors: *one-dark
+colors: *one-dark-neo
+
+draw_bold_text_with_bright_colors: true
