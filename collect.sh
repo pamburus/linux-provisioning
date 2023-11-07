@@ -33,15 +33,15 @@ while [ "$1" != "" ]; do
 done
 
 # source files
-bat=https://github.com/sharkdp/bat/releases/download/v0.22.1/bat-v0.22.1-x86_64-unknown-linux-musl.tar.gz
-fd=https://github.com/sharkdp/fd/releases/download/v8.5.3/fd-v8.5.3-x86_64-unknown-linux-musl.tar.gz
-lsd=https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd-0.23.1-x86_64-unknown-linux-musl.tar.gz
-procs=https://github.com/dalance/procs/releases/download/v0.13.3/procs-v0.13.3-x86_64-linux.zip
-delta=https://github.com/dandavison/delta/releases/download/0.14.0/delta-0.14.0-x86_64-unknown-linux-musl.tar.gz
-hl=https://github.com/pamburus/hl/releases/download/v0.13.0/hl-linux.tar.gz
-micro=https://github.com/zyedidia/micro/releases/download/v2.0.11/micro-2.0.11-linux64-static.tar.gz
+bat=https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz
+fd=https://github.com/sharkdp/fd/releases/download/v8.7.1/fd-v8.7.1-x86_64-unknown-linux-musl.tar.gz
+lsd=https://github.com/Peltoche/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-musl.tar.gz
+procs=https://github.com/dalance/procs/releases/download/v0.14.3/procs-v0.14.3-x86_64-linux.zip
+delta=https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-x86_64-unknown-linux-musl.tar.gz
+hl=https://github.com/pamburus/hl/releases/download/v0.20.0/hl-linux-x86_64-musl.tar.gz
+micro=https://github.com/zyedidia/micro/releases/download/v2.0.13/micro-2.0.13-linux64-static.tar.gz
 tmux=https://github.com/owent-contrib/tmux-build-musl/releases/download/3.2a/tmux-3.2a.musl-bin.tar.gz
-gojq=https://github.com/itchyny/gojq/releases/download/v0.12.9/gojq_v0.12.9_linux_amd64.tar.gz
+gojq=https://github.com/itchyny/gojq/releases/download/v0.12.13/gojq_v0.12.13_linux_amd64.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa
