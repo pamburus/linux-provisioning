@@ -42,6 +42,7 @@ hl=https://github.com/pamburus/hl/releases/download/v0.23.0/hl-linux-x86_64-musl
 micro=https://github.com/zyedidia/micro/releases/download/v2.0.13/micro-2.0.13-linux64-static.tar.gz
 tmux=https://github.com/owent-contrib/tmux-build-musl/releases/download/3.2a/tmux-3.2a.musl-bin.tar.gz
 gojq=https://github.com/itchyny/gojq/releases/download/v0.12.13/gojq_v0.12.13_linux_amd64.tar.gz
+rg=https://github.com/BurntSushi/ripgrep/releases/download/14.0.3/ripgrep-14.0.3-x86_64-unknown-linux-musl.tar.gz
 vimrc=~/.vim/vimrc
 tmuxconf=~/.tmux.conf
 key=~/.ssh/id_rsa
@@ -93,4 +94,5 @@ download "${delta:?}" "${target:?}"/dist/delta.tar.gz
 download "${micro:?}" "${target:?}"/dist/micro.tar.gz
 download "${hl:?}" "${target:?}"/dist/hl.tar.gz
 download "${gojq:?}" "${target:?}"/dist/gojq.tar.gz
+download "${rg:?}" "${target:?}"/dist/rg.tar.gz
 ${SHELL} ${source:?}/zip2tgz.sh "${target:?}"/dist/procs.zip "${target:?}"/dist/procs.tar.gz
