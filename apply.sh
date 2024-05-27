@@ -35,6 +35,7 @@ mkdir -p "${target:?}" ~/.vim ~/.config
 cp "${source:?}"/etc/vim/vimrc ~/.vim/vimrc
 cp -R "${source:?}"/etc/micro ~/.config/
 cp -R "${source:?}"/etc/hl ~/.config/
+cp -R "${source:?}"/etc/atuin ~/.config/
 tar -C ~ -x -f "${source:?}"/share/tmuxcfg.tar.gz
 
 # install needed and useful packages from official repositories
@@ -56,6 +57,8 @@ tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/delta.tar.gz 
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/micro.tar.gz --wildcards '*/micro'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/procs.tar.gz --wildcards '*/procs'
 tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/gojq.tar.gz --wildcards '*/gojq'
+tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/rg.tar.gz --wildcards '*/rg'
+tar -C "${target:?}" -x --strip-components 1 -f "${source:?}"/dist/atuin.tar.gz --wildcards '*/atuin'
 tar -C "${target:?}" -x -f "${source:?}"/dist/hl.tar.gz --wildcards 'hl'
 
 # configure bash profile
@@ -66,6 +69,8 @@ elif [ -f ~/.profile ]; then
 fi
 echo "source ${source:?}/scripts/profile.sh" | "${source:?}/scripts/append.sh" "${profile:?}"
 echo "export PATH=${target:?}:\${PATH}" | "${source:?}/scripts/append.sh" "${profile:?}"
+echo "[[ -f ${source:?}/etc/.bash-preexec.sh ]] && source ${source:?}/etc/.bash-preexec.sh" | "${source:?}/scripts/append.sh" "${profile:?}"
+echo 'eval "$(atuin init bash --disable-up-arrow)"' | "${source:?}/scripts/append.sh" "${profile:?}"
 
 # configure ssh
 mkdir -p ~/.ssh && chmod 0700 ~/.ssh
