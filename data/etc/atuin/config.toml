@@ -38,7 +38,7 @@
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
-# search_mode = "fuzzy"
+search_mode = "fulltext"
 
 ## which filter mode to use
 ## possible values: global, host, session, directory
@@ -51,31 +51,31 @@ workspaces = true
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
 ## leave unspecified to use same mode set in "filter_mode"
-# filter_mode_shell_up_key_binding = "global"
+filter_mode_shell_up_key_binding = "session"
 
 ## which search mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "search_mode"
 ## leave unspecified to use same mode set in "search_mode"
-# search_mode_shell_up_key_binding = "fuzzy"
+search_mode_shell_up_key_binding = "fulltext"
 
 ## which style to use
 ## possible values: auto, full, compact
-style = "auto"
+style = "compact"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
-# inline_height = 10
+inline_height = 0
 
 ## Invert the UI - put the search bar at the top , Default to `false`
-# invert = false
+# invert = true
 
 ## enable or disable showing a preview of the selected command
 ## useful when the command is longer than the terminal width and is cut off
-# show_preview = false
+show_preview = true
 
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
-# exit_mode = "return-original"
+# exit_mode = "return-query"
 
 ## possible values: emacs, subl
 # word_jump_mode = "emacs"
@@ -125,6 +125,13 @@ show_help = false
 ## Configure whether or not to show tabs for search and inspect
 show_tabs = false
 
+## Configure whether or not the tabs row may be auto-hidden, which includes the current Atuin
+## tab, such as Search or Inspector, and other tabs you may wish to see. This will
+## only be hidden if there are fewer than this count of lines available, and does not affect the use
+## of keyboard shortcuts to switch tab. 0 to never auto-hide, default is 8 (lines).
+## This is ignored except in `compact` mode.
+auto_hide_height = 1
+
 ## Defaults to true. This matches history against a set of default regex, and will not save it if we get a match. Defaults include
 ## 1. AWS key id
 ## 2. Github pat (old and new)
@@ -158,7 +165,7 @@ enter_accept = true
 
 ## Set this to true and Atuin will minimize motion in the UI - timers will not update live, etc.
 ## Alternatively, set env NO_MOTION=true
-# prefers_reduced_motion = false
+prefers_reduced_motion = true
 
 [stats]
 ## Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
@@ -196,10 +203,17 @@ enter_accept = true
 
 [keys]
 # Defaults to true. If disabled, using the up/down key won't exit the TUI when scrolled past the first/last entry.
-# scroll_exits = false
+scroll_exits = false
 
 [sync]
 # Enable sync v2 by default
 # This ensures that sync v2 is enabled for new installs only
 # In a later release it will become the default across the board
 records = true
+
+[theme]
+name = "pamburus"
+debug = true
+
+[search]
+filters = ["directory", "global", "workspace"]
