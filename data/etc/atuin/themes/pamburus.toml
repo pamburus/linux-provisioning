@@ -1,0 +1,8 @@
+[theme]
+name = "pamburus"
+parent = "default"
+
+[colors]
+AlertError = "#d0d0e0"
+Base = "#707090"
+Annotation = "#c0c0d0"
